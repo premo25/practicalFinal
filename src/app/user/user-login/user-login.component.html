@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="logo">
+    <img src="assets/img/epicLogo.svg" alt="" />
+    <img src="assets/img/epicTitle.svg" alt="" />
+  </div>
+
+  <h5 class="border-bottom border-light-2 d-flex justify-content-center">
+    <b>User Sign-In</b>
+  </h5>
+
+  <form [formGroup]="loginForm" (ngSubmit)="loginProcess()">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        name="email"
+        formControlName="email"
+        class="form-control"
+      />
+      <div
+        *ngIf="
+          loginForm.controls['email'].invalid &&
+          loginForm.controls['email'].touched
+        "
+        class="error-message"
+      >
+        Email is required and must be a valid email address.
+      </div>
+    </div>
+
+    <div class="form-group border-bottom border-dark-2">
+      <label for="password">Password:</label>
+      <input type="password" formControlName="password" class="form-control" />
+      <div
+        *ngIf="
+          loginForm.controls['password'].invalid &&
+          loginForm.controls['password'].touched
+        "
+        class="error-message"
+      >
+        Password is required and must be at least 6 characters long.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="loginForm.invalid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

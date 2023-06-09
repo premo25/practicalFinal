@@ -1,0 +1,30 @@
+<div class="container">
+  <html>
+    <body>
+      <div class="text-center p-4">
+        <h1><b>Product List</b></h1>
+        <button class="btn btn-info" type="button" (click)="AddProduct()">Add product</button>
+      </div>
+      <table>
+        <tr>
+          <th class="text-center">Title</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Price</th>
+          <th class="text-center">Stock</th>
+          <th class="text-center">Action</th>
+        </tr>
+        <tr *ngFor="let item of products">
+          <td class="text-center">{{item.title}}</td>
+          <td class="text-center">{{item.description}} </td>
+          <td class="text-center">{{item.price}}</td>
+          <td class="text-center">{{item.stock}}</td>
+          <td>
+
+            <button  style="margin-right: 5px" (click)="editProduct(item.id)">Edit</button>
+            <button (click)="deleteProduct(item.id)">Delete</button>
+          </td>
+        </tr>
+      </table>
+    </body>
+  </html>
+</div>

@@ -1,0 +1,58 @@
+<!-- <p>add-product works!</p> -->
+<body>
+    
+<div class="container">
+    
+      
+    <h5 class="border-bottom border-light-2 d-flex justify-content-center"><b>Product Registretion Form</b></h5>
+      
+    <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" formControlName="title" class="form-control">
+        <div *ngIf="addProductForm.controls['title'].invalid && addProductForm.controls['title'].touched" class="error-message">
+            Title is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" formControlName="description" class="form-control">
+        <div *ngIf="addProductForm.controls['description'].invalid && addProductForm.controls['description'].touched" class="error-message">
+            Description is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" formControlName="price" class="form-control">
+        <div *ngIf="addProductForm.controls['price'].invalid && addProductForm.controls['price'].touched" class="error-message">
+            Price is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone">phone:</label>
+        <input type="phone" id="phone" name="phone" formControlName="phone" class="form-control">
+        <div *ngIf="addProductForm.controls['phone'].invalid && addProductForm.controls['phone'].touched" class="error-message">
+          phone-Num. is required and must be a valid phone-Num.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" class="form-control">
+        <div *ngIf="addProductForm.controls['password'].invalid && addProductForm.controls['password'].touched" class="error-message">
+          Password is required and must be at least 6 characters long.
+        </div>
+      </div>
+      <div class="form-group">  
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" class="form-control">
+        <div *ngIf="addProductForm.controls['confirmPassword'].invalid && addProductForm.controls['confirmPassword'].touched" class="error-message">
+          Confirm Password is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="addProductForm.invalid">Submit</button>
+     <div class="d-flex justify-content-center">
+      <p>Already have an account? <a [routerLink]="['']"><b>Login</b></a></p>
+     </div>
+    </form>
+  </div>
+</body>
